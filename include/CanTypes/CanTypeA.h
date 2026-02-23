@@ -15,7 +15,7 @@
 class CanTypeA {
     public:
 
-        /** @brief Enum für hardwarespezifische Spezialfunktion. */
+        /** @brief Enum für hardwarespezifische Spezialfunktion. Hier wurde angenommen, dass CanTypeA als einzige Hardware eine Baudrate von 1000kBaud zulässt. */
         enum class eBaudrate : uint32_t {
             BAUD_125k = 125000,
             BAUD_250k = 250000,
