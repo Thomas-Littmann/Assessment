@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Assessment_Einheitliches_Interface: include/CanTypes/CanTypeE.h Source File</title>
+<title>Assessment: include/CanTypes/CanTypeE.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Assessment_Einheitliches_Interface
+   <div id="projectname">Assessment
    </div>
   </td>
  </tr>
@@ -132,18 +132,21 @@ $(function(){initNavTree('_can_type_e_8h_source.html','',''); });
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        }</div>
 </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        uint32_t baudrate = 0;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordtype">bool</span> initialized = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordtype">bool</span> active = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">bool</span> handleMessage() { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>};</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_can_type_e.html#a8c2b9238a8d5f220f518805ffd112698">   54</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_can_type_e.html#a8c2b9238a8d5f220f518805ffd112698">getMessage</a>(uint8_t* buffer, uint8_t&amp; length);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        uint32_t baudrate = 0;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordtype">bool</span> initialized = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordtype">bool</span> active = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordtype">bool</span> handleMessage() { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>};</div>
 </div>
 <div class="ttc" id="aclass_can_type_e_html"><div class="ttname"><a href="class_can_type_e.html">CanTypeE</a></div><div class="ttdoc">Hardware Klasse für CanTypeE welche in der Aufgabenstellung gegeben ist.</div><div class="ttdef"><b>Definition</b> CanTypeE.h:22</div></div>
 <div class="ttc" id="aclass_can_type_e_html_a1bcb5398a99d4f0370bf7effcd450a27"><div class="ttname"><a href="class_can_type_e.html#a1bcb5398a99d4f0370bf7effcd450a27">CanTypeE::sendMessageStruct</a></div><div class="ttdeci">bool sendMessageStruct(messageStruct *message)</div><div class="ttdoc">Hardwarespezifische Spezialfunktion. Direktzugriff von Applikation ist über Bypass möglich.</div><div class="ttdef"><b>Definition</b> CanTypeE.h:43</div></div>
 <div class="ttc" id="aclass_can_type_e_html_a825a039589549aa10045f993259aefbf"><div class="ttname"><a href="class_can_type_e.html#a825a039589549aa10045f993259aefbf">CanTypeE::sendMessage</a></div><div class="ttdeci">bool sendMessage(const uint8_t *message, uint8_t length)</div><div class="ttdef"><b>Definition</b> CanTypeE.h:36</div></div>
+<div class="ttc" id="aclass_can_type_e_html_a8c2b9238a8d5f220f518805ffd112698"><div class="ttname"><a href="class_can_type_e.html#a8c2b9238a8d5f220f518805ffd112698">CanTypeE::getMessage</a></div><div class="ttdeci">bool getMessage(uint8_t *buffer, uint8_t &amp;length)</div><div class="ttdoc">ANNAHME Für die Integration des Empfangs wird hier angenommen, dass die Hardware CanTypeE eine Method...</div></div>
 <div class="ttc" id="astructmessage_struct_html"><div class="ttname"><a href="structmessage_struct.html">messageStruct</a></div><div class="ttdoc">Platzhalter Struct, welcher von der Spezialfunktion sendMessageStruct eingelesen wird.</div><div class="ttdef"><b>Definition</b> CanTypeE.h:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

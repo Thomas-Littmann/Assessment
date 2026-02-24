@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Assessment_Einheitliches_Interface: CanAdapterB Class Reference</title>
+<title>Assessment: CanAdapterB Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Assessment_Einheitliches_Interface
+   <div id="projectname">Assessment
    </div>
   </td>
  </tr>
@@ -122,6 +122,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9f630dc15742257961e05c6f08369804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adresse des Callbacks für den asynchronen Empfang wird hinterlegt.  <br /></td></tr>
 <tr class="memitem:a48d18fb5431811269f3b13f2fd9c9960" id="r_a48d18fb5431811269f3b13f2fd9c9960"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a48d18fb5431811269f3b13f2fd9c9960">registerErrorCallback</a> (CanErrorCallback callback) override</td></tr>
 <tr class="memdesc:a48d18fb5431811269f3b13f2fd9c9960"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adresse des Callbacks für die asynchrone Rückmeldung von Fehlern wird hinterlegt.  <br /></td></tr>
+<tr class="memitem:a221a1536404d17ab25f076ed8a60df2d" id="r_a221a1536404d17ab25f076ed8a60df2d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a221a1536404d17ab25f076ed8a60df2d">receive</a> () override</td></tr>
+<tr class="memdesc:a221a1536404d17ab25f076ed8a60df2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zyklische Verarbeitung. Ermöglicht Polling für den Empfang von Nachrichten.  <br /></td></tr>
 <tr class="memitem:adae004e5210482a08467087882deee0c" id="r_adae004e5210482a08467087882deee0c"><td class="memItemLeft"><a id="adae004e5210482a08467087882deee0c" name="adae004e5210482a08467087882deee0c"></a>
 <a class="el" href="class_can_type_b.html">CanTypeB</a> *&#160;</td><td class="memItemRight"><b>getHardware</b> ()</td></tr>
 <tr class="memdesc:adae004e5210482a08467087882deee0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Methode um Bypass von Applikation auf Hardware <a class="el" href="class_can_type_b.html" title="Hardware Klasse für CanTypeB welche in der Aufgabenstellung gegeben ist.">CanTypeB</a> direkt zu ermöglichen. <br /></td></tr>
@@ -153,6 +155,37 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="class_i_can_interface.html">ICanInterface</a>.</p>
+
+</div>
+</div>
+<a id="a221a1536404d17ab25f076ed8a60df2d" name="a221a1536404d17ab25f076ed8a60df2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a221a1536404d17ab25f076ed8a60df2d">&#9670;&#160;</a></span>receive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CanAdapterB::receive </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Zyklische Verarbeitung. Ermöglicht Polling für den Empfang von Nachrichten. </p>
+<p>Zyklische Abfrage von Nachrichten bei der Hardware. Bei Erhalt von Nachrichten werden diese an die registrierte Callback-Funktion weitergeleitet. Hinweis: Die aktuelle Hardware-API bietet keinen öffentlichen Zugriff auf handleMessage()) oder Empfangsregister </p>
+<p>Rückmeldung von Fehlern über Callback. Hier wird geprüft, ob die Hardware initialisiert ist und ob die Nachricht nicht zu lang ist.</p>
+
+<p>Implements <a class="el" href="class_i_can_interface.html#a1fe8fd8bcb8efce92bb9121cacfa9c14">ICanInterface</a>.</p>
 
 </div>
 </div>

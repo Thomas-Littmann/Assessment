@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Assessment_Einheitliches_Interface: CanTypeB Class Reference</title>
+<title>Assessment: CanTypeB Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Assessment_Einheitliches_Interface
+   <div id="projectname">Assessment
    </div>
   </td>
  </tr>
@@ -108,10 +108,37 @@ bool&#160;</td><td class="memItemRight"><b>sendMessage</b> (const uint8_t *messa
 <tr class="memdesc:aa90dcf4abf2f10ae02bbf2a907583c74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prüft ob CanBus initialisiert und aktiv ist vor dem Senden. <br /></td></tr>
 <tr class="memitem:ade1fe597d822d19ea42a568965271c78" id="r_ade1fe597d822d19ea42a568965271c78"><td class="memItemLeft"><a id="ade1fe597d822d19ea42a568965271c78" name="ade1fe597d822d19ea42a568965271c78"></a>
 bool&#160;</td><td class="memItemRight"><b>setState</b> (bool state)</td></tr>
+<tr class="memitem:a96ab7f5f4f5ba9830a9b25fed0516002" id="r_a96ab7f5f4f5ba9830a9b25fed0516002"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a96ab7f5f4f5ba9830a9b25fed0516002">getMessage</a> (uint8_t *buffer, uint8_t &amp;length)</td></tr>
+<tr class="memdesc:a96ab7f5f4f5ba9830a9b25fed0516002"><td class="mdescLeft">&#160;</td><td class="mdescRight">ANNAHME Für die Integration des Empfangs wird hier angenommen, dass die Hardware <a class="el" href="class_can_type_b.html" title="Hardware Klasse für CanTypeB welche in der Aufgabenstellung gegeben ist.">CanTypeB</a> eine Methode <a class="el" href="#a96ab7f5f4f5ba9830a9b25fed0516002" title="ANNAHME Für die Integration des Empfangs wird hier angenommen, dass die Hardware CanTypeB eine Method...">getMessage()</a> bereitstellt, welche die aktuell empfangene Nachricht zurückgibt.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Hardware Klasse für <a class="el" href="class_can_type_b.html" title="Hardware Klasse für CanTypeB welche in der Aufgabenstellung gegeben ist.">CanTypeB</a> welche in der Aufgabenstellung gegeben ist. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a96ab7f5f4f5ba9830a9b25fed0516002" name="a96ab7f5f4f5ba9830a9b25fed0516002"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96ab7f5f4f5ba9830a9b25fed0516002">&#9670;&#160;</a></span>getMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CanTypeB::getMessage </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t &amp;</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ANNAHME Für die Integration des Empfangs wird hier angenommen, dass die Hardware <a class="el" href="class_can_type_b.html" title="Hardware Klasse für CanTypeB welche in der Aufgabenstellung gegeben ist.">CanTypeB</a> eine Methode <a class="el" href="#a96ab7f5f4f5ba9830a9b25fed0516002" title="ANNAHME Für die Integration des Empfangs wird hier angenommen, dass die Hardware CanTypeB eine Method...">getMessage()</a> bereitstellt, welche die aktuell empfangene Nachricht zurückgibt. </p>
+<p>Diese Methode erhält Adresse eines Puffers und ist hier pseudomäßig impementiert. Es wird angenommen, dass die empfangene Nachricht in den Puffer geschrieben und die Länge der Nachricht zurückgegeben wird. Wenn eine Nachricht empfangen wurde, wird true zurückgegeben, andernfalls false. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/CanTypes/<a class="el" href="_can_type_b_8h_source.html">CanTypeB.h</a></li>
 </ul>
 </div><!-- contents -->

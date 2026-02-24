@@ -1,5 +1,6 @@
 var class_i_can_interface =
 [
+    [ "receive", "class_i_can_interface.html#a1fe8fd8bcb8efce92bb9121cacfa9c14", null ],
     [ "registerErrorCallback", "class_i_can_interface.html#adbf33665baa14717594ca76378928554", null ],
     [ "registerReceiveCallback", "class_i_can_interface.html#a558bad3702209609cde3ec4c39da2974", null ],
     [ "sendMessage", "class_i_can_interface.html#ae23c4b04f370305c300023c78396d9d2", null ],

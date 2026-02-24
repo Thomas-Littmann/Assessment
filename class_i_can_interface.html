@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Assessment_Einheitliches_Interface: ICanInterface Class Reference</title>
+<title>Assessment: ICanInterface Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Assessment_Einheitliches_Interface
+   <div id="projectname">Assessment
    </div>
   </td>
  </tr>
@@ -119,8 +119,42 @@ virtual bool&#160;</td><td class="memItemRight"><b>initialize</b> ()=0</td></tr>
 <tr class="memdesc:a558bad3702209609cde3ec4c39da2974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchrones Empfangen (Registrierung eines Callbacks).  <br /></td></tr>
 <tr class="memitem:adbf33665baa14717594ca76378928554" id="r_adbf33665baa14717594ca76378928554"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#adbf33665baa14717594ca76378928554">registerErrorCallback</a> (CanErrorCallback callback)=0</td></tr>
 <tr class="memdesc:adbf33665baa14717594ca76378928554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchrone Asynchroner Empfang von Fehlern (Registrierung eines Callbacks für Fehler).  <br /></td></tr>
+<tr class="memitem:a1fe8fd8bcb8efce92bb9121cacfa9c14" id="r_a1fe8fd8bcb8efce92bb9121cacfa9c14"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a1fe8fd8bcb8efce92bb9121cacfa9c14">receive</a> ()=0</td></tr>
+<tr class="memdesc:a1fe8fd8bcb8efce92bb9121cacfa9c14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zyklische Verarbeitung. Ermöglicht Polling für den Empfang von Nachrichten.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a1fe8fd8bcb8efce92bb9121cacfa9c14" name="a1fe8fd8bcb8efce92bb9121cacfa9c14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fe8fd8bcb8efce92bb9121cacfa9c14">&#9670;&#160;</a></span>receive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ICanInterface::receive </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Zyklische Verarbeitung. Ermöglicht Polling für den Empfang von Nachrichten. </p>
+<ul>
+<li></li>
+</ul>
+
+<p>Implemented in <a class="el" href="class_can_adapter_a.html#aadf032b8b041d5263711ab6413eaa5cb">CanAdapterA</a>, <a class="el" href="class_can_adapter_b.html#a221a1536404d17ab25f076ed8a60df2d">CanAdapterB</a>, <a class="el" href="class_can_adapter_c.html#a4d66fa28edc3c8b14a40f69514adf76c">CanAdapterC</a>, <a class="el" href="class_can_adapter_d.html#aeba555f763dc4cec2238364e32d501f9">CanAdapterD</a>, and <a class="el" href="class_can_adapter_e.html#a10f185535b5e54f8388e8108413225c5">CanAdapterE</a>.</p>
+
+</div>
+</div>
 <a id="adbf33665baa14717594ca76378928554" name="adbf33665baa14717594ca76378928554"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adbf33665baa14717594ca76378928554">&#9670;&#160;</a></span>registerErrorCallback()</h2>
 
@@ -174,7 +208,7 @@ virtual bool&#160;</td><td class="memItemRight"><b>initialize</b> ()=0</td></tr>
 </div><div class="memdoc">
 
 <p>Asynchrones Empfangen (Registrierung eines Callbacks). </p>
-<p>Damit dies funktioniert, müsste sich der Adapter bei der Hardware als Empfänger von Nachrichten registrieren. Ist der jeweilige Adapter bei der Hardware hinterlegt, können bei Erhalt von Nachrichten diese registrierten Callbacks weitergeleitet werden. Bei <a class="el" href="class_can_type_c.html" title="Hardware Klasse für CanTypeC welche in der Aufgabenstellung gegeben ist.">CanTypeC</a> könnte das Attribut messageReceiver dafür angedacht sein. </p>
+<p>Die Applikation kann hier eine Funktion registrieren, die bei Eintreffen von Nachrichten aufgerufen wird. Der Adapter überwacht die Hardware (über die Methode poll()) und leitet empfangene Nachrichten an die registrierte Callback-Funktion weiter. </p>
 
 <p>Implemented in <a class="el" href="class_can_adapter_a.html#a68bd3e766a5327ade8b698a49d3dc140">CanAdapterA</a>, <a class="el" href="class_can_adapter_b.html#a9f630dc15742257961e05c6f08369804">CanAdapterB</a>, <a class="el" href="class_can_adapter_c.html#a2fc599383bf6bb594ea6680e53f6648f">CanAdapterC</a>, <a class="el" href="class_can_adapter_d.html#a2baf090689d7657c94387ddb8c1a191b">CanAdapterD</a>, and <a class="el" href="class_can_adapter_e.html#a961a9131b2ffbdc8d2270416fe23d40a">CanAdapterE</a>.</p>
 

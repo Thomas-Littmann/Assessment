@@ -24,7 +24,13 @@
 */
 var NAVTREE =
 [
-  [ "Assessment_Einheitliches_Interface", "index.html", [
+  [ "Assessment", "index.html", [
+    [ "CAN Bus Assessment", "md__r_e_a_d_m_e.html", [
+      [ "Architektur &amp; UML", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
+      [ "Designentscheidungen", "md__r_e_a_d_m_e.html#autotoc_md4", null ],
+      [ "Ordnerstruktur", "md__r_e_a_d_m_e.html#autotoc_md6", null ],
+      [ "Persönliche Anmerkung", "md__r_e_a_d_m_e.html#autotoc_md7", null ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

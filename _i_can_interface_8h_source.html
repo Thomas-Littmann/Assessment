@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Assessment_Einheitliches_Interface: include/ICanInterface.h Source File</title>
+<title>Assessment: include/ICanInterface.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Assessment_Einheitliches_Interface
+   <div id="projectname">Assessment
    </div>
   </td>
  </tr>
@@ -120,7 +120,10 @@ $(function(){initNavTree('_i_can_interface_8h_source.html','',''); });
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_i_can_interface.html#a558bad3702209609cde3ec4c39da2974">   47</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i_can_interface.html#a558bad3702209609cde3ec4c39da2974">registerReceiveCallback</a>(<a class="code hl_typedef" href="_i_can_interface_8h.html#a48ad5060821a328fae454c8bbb77534e">CanReceiveCallback</a> callback) = 0;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_i_can_interface.html#adbf33665baa14717594ca76378928554">   50</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i_can_interface.html#adbf33665baa14717594ca76378928554">registerErrorCallback</a>(CanErrorCallback callback) = 0;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_i_can_interface.html#a1fe8fd8bcb8efce92bb9121cacfa9c14">   54</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i_can_interface.html#a1fe8fd8bcb8efce92bb9121cacfa9c14">receive</a>() = 0;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
 </div>
 <div class="ttc" id="a_can_common_8h_html"><div class="ttname"><a href="_can_common_8h.html">CanCommon.h</a></div><div class="ttdoc">Headerfile für Enums, welche Werte für CanBaudrate, CanMode, CanSyncResult und CanAsyncResult speiche...</div></div>
 <div class="ttc" id="a_can_common_8h_html_a0bb32886f7bbc9503972a7f7ced1d341"><div class="ttname"><a href="_can_common_8h.html#a0bb32886f7bbc9503972a7f7ced1d341">CanAsyncResult</a></div><div class="ttdeci">CanAsyncResult</div><div class="ttdoc">Rückmeldungen für Fehler nach Senden oder beim Empfang (Asynchron).</div><div class="ttdef"><b>Definition</b> CanCommon.h:48</div></div>
@@ -129,6 +132,7 @@ $(function(){initNavTree('_i_can_interface_8h_source.html','',''); });
 <div class="ttc" id="a_can_common_8h_html_aae3573b0eb70ffecb5b3105b7afd041c"><div class="ttname"><a href="_can_common_8h.html#aae3573b0eb70ffecb5b3105b7afd041c">CanMode</a></div><div class="ttdeci">CanMode</div><div class="ttdoc">Modus auf welchen CAN gesetzt werden kann. Bisher Active und Passive.</div><div class="ttdef"><b>Definition</b> CanCommon.h:28</div></div>
 <div class="ttc" id="a_i_can_interface_8h_html_a48ad5060821a328fae454c8bbb77534e"><div class="ttname"><a href="_i_can_interface_8h.html#a48ad5060821a328fae454c8bbb77534e">CanReceiveCallback</a></div><div class="ttdeci">void(*)(const uint8_t *data, uint8_t length) CanReceiveCallback</div><div class="ttdoc">Aliase für die Callbacks zur besseren Lesbarkeit.</div><div class="ttdef"><b>Definition</b> ICanInterface.h:19</div></div>
 <div class="ttc" id="aclass_i_can_interface_html"><div class="ttname"><a href="class_i_can_interface.html">ICanInterface</a></div><div class="ttdef"><b>Definition</b> ICanInterface.h:23</div></div>
+<div class="ttc" id="aclass_i_can_interface_html_a1fe8fd8bcb8efce92bb9121cacfa9c14"><div class="ttname"><a href="class_i_can_interface.html#a1fe8fd8bcb8efce92bb9121cacfa9c14">ICanInterface::receive</a></div><div class="ttdeci">virtual void receive()=0</div><div class="ttdoc">Zyklische Verarbeitung. Ermöglicht Polling für den Empfang von Nachrichten.</div></div>
 <div class="ttc" id="aclass_i_can_interface_html_a558bad3702209609cde3ec4c39da2974"><div class="ttname"><a href="class_i_can_interface.html#a558bad3702209609cde3ec4c39da2974">ICanInterface::registerReceiveCallback</a></div><div class="ttdeci">virtual void registerReceiveCallback(CanReceiveCallback callback)=0</div><div class="ttdoc">Asynchrones Empfangen (Registrierung eines Callbacks).</div></div>
 <div class="ttc" id="aclass_i_can_interface_html_a90826e67b54b0a645db8b847ae114d36"><div class="ttname"><a href="class_i_can_interface.html#a90826e67b54b0a645db8b847ae114d36">ICanInterface::setBaudrate</a></div><div class="ttdeci">virtual bool setBaudrate(CanBaudrate baudrate)=0</div><div class="ttdoc">Implementierung einer einheitlichen Methode um festgelegte Übertragungsraten einzustellen (125kBaud,...</div></div>
 <div class="ttc" id="aclass_i_can_interface_html_adb30338692fa1acefba996d7cbce2e84"><div class="ttname"><a href="class_i_can_interface.html#adb30338692fa1acefba996d7cbce2e84">ICanInterface::setMode</a></div><div class="ttdeci">virtual bool setMode(CanMode mode)=0</div><div class="ttdoc">Implementierung einer einheitlichen Methode setMode.</div></div>
