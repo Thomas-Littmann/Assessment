@@ -13,7 +13,7 @@ Die Architektur besteht aus vier Schichten:
 1. **Applikation**: Nutzt die einheitliche Schnittstelle (`ICanInterface`) und greift nur in Ausnahmefällen direkt auf die Hardware zu.  
 2. **Einheitliche Schnittstelle** (`ICanInterface`): Sorgt dafür, dass die Applikation unabhängig von der konkreten Hardware ist.  
 3. **Hardware-Adapter** (`CanAdapterA/B/C/D/E`): Adapterklassen, welche die jeweiligen Hardware-Klassen (`CanTypeA/B/C/D/E`) kapseln und auf die einheitliche Schnittstelle abbilden.
-4. Hardware-Klassen (CanTypeA/B/C/D/E): Repräsentieren die konkrete CAN-Hardware und enthalten die hardware-spezifischen Implementierungen. Diese wurden in der Aufgabe gegeben.
+4. **Hardware-Klassen** (`CanTypeA/B/C/D/E`): Repräsentieren die konkrete CAN-Hardware und enthalten die hardware-spezifischen Implementierungen. Diese wurden in der Aufgabe gegeben.
 
 
 Hier ist das UML-Klassendiagramm der implementierten Lösung:
