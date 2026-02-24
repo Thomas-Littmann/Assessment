@@ -18,7 +18,7 @@ Die Architektur besteht aus vier Schichten:
 
 Hier ist das UML-Klassendiagramm der implementierten Lösung:
 
-![CAN Bus Class Diagram](uml/Assessment_Class_Diagram.svg)
+![CAN Bus Class Diagram](uml/Assessment_Klassen_Diagramm.svg)
 
 *Hinweis:* Spezialfunktionen der Hardware, die nicht Teil der einheitlichen Schnittstelle sind, können von der Applikation direkt genutzt werden. Die Adresse hierfür liefert jeweils die Methode getHardware() der Adapter.
 
