@@ -40,12 +40,17 @@ class ICanInterface {
 		virtual CanSyncResult sendMessage(const uint8_t* message, uint8_t length) = 0;
 
 		/** @brief Asynchrones Empfangen (Registrierung eines Callbacks). 
-		 * @details Damit dies funktioniert, müsste sich der Adapter bei der Hardware als Empfänger von Nachrichten registrieren.
-		 * Ist der jeweilige Adapter bei der Hardware hinterlegt, können bei Erhalt von Nachrichten diese registrierten Callbacks weitergeleitet werden.
-		 * Bei CanTypeC könnte das Attribut messageReceiver dafür angedacht sein.
+ 		 * @details Die Applikation kann hier eine Funktion registrieren, die bei Eintreffen von Nachrichten aufgerufen wird.
+ 		 * Der Adapter überwacht die Hardware (über die Methode poll()) und leitet empfangene Nachrichten
+ 		 * an die registrierte Callback-Funktion weiter.
 		 */
 		virtual void registerReceiveCallback(CanReceiveCallback callback) = 0;
 
 		/** @brief Asynchrone Asynchroner Empfang von Fehlern (Registrierung eines Callbacks für Fehler). */
 		virtual void registerErrorCallback(CanErrorCallback callback) = 0;
+
+		/** * @brief Zyklische Verarbeitung. Ermöglicht Polling für den Empfang von Nachrichten.
+ 		 */
+		virtual void receive() = 0;
+
 };

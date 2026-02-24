@@ -90,6 +90,37 @@ class CanAdapterB : public ICanInterface {
             m_errorCallback = callback;
         }
 
+        /**
+         * @brief Zyklische Verarbeitung. Ermöglicht Polling für den Empfang von Nachrichten.
+         * @details Zyklische Abfrage von Nachrichten bei der Hardware. Bei Erhalt von Nachrichten werden diese an die registrierte Callback-Funktion weitergeleitet.
+         * Hinweis: Die aktuelle Hardware-API bietet keinen öffentlichen Zugriff auf handleMessage()) oder Empfangsregister
+         */
+        void receive() override {
+            if (!m_hardwareB) return;
+
+            uint8_t rxBuffer[8];
+            uint8_t rxLength = 0;
+
+            if (m_hardwareB->getMessage(rxBuffer, rxLength)) {
+
+                if (m_rxCallback && rxLength > 0 && rxLength <= 8) {
+                    m_rxCallback(rxBuffer, rxLength);
+                }
+            }
+
+                /** @brief Rückmeldung von Fehlern über Callback. Hier wird geprüft, ob die Hardware initialisiert ist und ob die Nachricht nicht zu lang ist. */ 
+            if (m_errorCallback) {
+
+                if (!m_hardwareB->initialize()) {
+                    m_errorCallback(CanAsyncResult::BUS_ERROR);
+                }
+
+                if (rxLength > 8) {
+                    m_errorCallback(CanAsyncResult::RX_OVERFLOW);
+                }
+            }
+        }
+
         /** @brief Methode um Bypass von Applikation auf Hardware CanTypeB direkt zu ermöglichen. */
         CanTypeB* getHardware() {return m_hardwareB; }
 

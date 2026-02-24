@@ -47,6 +47,15 @@ class CanTypeA {
             return true; 
         }
 
+
+        /** @brief ANNAHME 
+         * Für die Integration des Empfangs wird hier angenommen, dass die  Hardware CanTypeA eine Methode getMessage() bereitstellt, welche die aktuell empfangene Nachricht zurückgibt.
+         * @details Diese Methode erhält Adresse eines Puffers und ist hier pseudomäßig impementiert. 
+         * Es wird angenommen, dass die empfangene Nachricht in den Puffer geschrieben und die Länge der Nachricht zurückgegeben wird.
+         * Wenn eine Nachricht empfangen wurde, wird true zurückgegeben, andernfalls false.
+         */
+        bool getMessage(uint8_t* buffer, uint8_t& length);
+
     private:
         uint32_t baudrate = 0;
         bool initialized = false;

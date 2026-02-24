@@ -15,6 +15,7 @@
 #include "../CanCommon.h"
 #include "../ICanInterface.h"
 
+class CanAdapterC;
 
 /** 
  * @class CanAdapterC
@@ -93,8 +94,39 @@ class CanAdapterC : public ICanInterface {
         /** @brief Methode um Bypass von Applikation auf Hardware CanTypeC direkt zu ermöglichen. */
         CanTypeC* getHardware() {return m_hardwareC; }
 
+        /**
+         * @brief Zyklische Verarbeitung. Ermöglicht Polling für den Empfang von Nachrichten.
+         * @details Zyklische Abfrage von Nachrichten bei der Hardware. Bei Erhalt von Nachrichten werden diese an die registrierte Callback-Funktion weitergeleitet.
+         * Hinweis: Die aktuelle Hardware-API bietet keinen öffentlichen Zugriff auf handleMessage()) oder Empfangsregister
+         */
+        void receive() override {
+            if (!m_hardwareC) return;
+
+            uint8_t rxBuffer[8];
+            uint8_t rxLength = 0;
+
+            if (m_hardwareC->getMessage(rxBuffer, rxLength)) {
+
+                if (m_rxCallback && rxLength > 0 && rxLength <= 8) {
+                    m_rxCallback(rxBuffer, rxLength);
+                }
+            }
+
+            /** @brief Rückmeldung von Fehlern über Callback. Hier wird geprüft, ob die Hardware initialisiert ist und ob die Nachricht nicht zu lang ist. */ 
+            if (m_errorCallback) {
+
+                if (!m_hardwareC->initialize()) {
+                    m_errorCallback(CanAsyncResult::BUS_ERROR);
+                }
+
+                if (rxLength > 8) {
+                    m_errorCallback(CanAsyncResult::RX_OVERFLOW);
+                }
+            }
+        }
+
     private:
-        /** @brief Adresse der Hardware von CanTypeA. Diese erlaubt den Direktzugriff der Applikation auf die Hardware. */
+        /** @brief Adresse der Hardware von CanTypeC. Diese erlaubt den Direktzugriff der Applikation auf die Hardware. */
         CanTypeC* m_hardwareC; 
 
         /**@brief Speicher für Funktionsadressen zur Realisierung des Asynchronen Rückmeldens von Fehlern. */

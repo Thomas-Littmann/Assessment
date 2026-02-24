@@ -80,7 +80,6 @@ class CanAdapterA : public ICanInterface {
             return CanSyncResult::NOT_ACTIVE;
         }
 
-
         /** @brief Adresse des Callbacks für den asynchronen Empfang wird hinterlegt */
         void registerReceiveCallback(CanReceiveCallback callback) override {
             m_rxCallback = callback;
@@ -90,11 +89,46 @@ class CanAdapterA : public ICanInterface {
             m_errorCallback = callback;
         }
 
+
+        /**
+         * @brief Zyklische Verarbeitung. Ermöglicht Polling für den Empfang von Nachrichten.
+         * @details Zyklische Abfrage von Nachrichten bei der Hardware. Bei Erhalt von Nachrichten werden diese an die registrierte Callback-Funktion weitergeleitet.
+         * Hinweis: Die aktuelle Hardware-API bietet keinen öffentlichen Zugriff auf handleMessage()) oder Empfangsregister
+         */
+        void receive() override {
+            if (!m_hardwareA) return;
+
+            uint8_t rxBuffer[8];
+            uint8_t rxLength = 0;
+
+            if (m_hardwareA->getMessage(rxBuffer, rxLength)) {
+
+                if (m_rxCallback && rxLength > 0 && rxLength <= 8) {
+                    m_rxCallback(rxBuffer, rxLength);
+                }
+            }
+
+            /** @brief Rückmeldung von Fehlern über Callback. Hier wird geprüft, ob die Hardware initialisiert ist und ob die Nachricht nicht zu lang ist. */ 
+            if (m_errorCallback) {
+
+                if (!m_hardwareA->initialize()) {
+                    m_errorCallback(CanAsyncResult::BUS_ERROR);
+                }
+
+                if (rxLength > 8) {
+                    m_errorCallback(CanAsyncResult::RX_OVERFLOW);
+                }
+            }
+
+        }
+
         /** @brief Methode um Bypass von Applikation auf Hardware CanTypeA direkt zu ermöglichen.
          * @details In diesem Fall ist es bspw. für die Methode setBaudrate(eBaudrate baudrate), welche eine Spezialfunktion von CanTypeA ist. 
          * Per Downcast kann die Applikation auf diese Spezialfunktion an dem einheitlichem Interface vorbei zugreifen.
          */
         CanTypeA* getHardware() {return m_hardwareA; }
+
+
 
     private:
         /** @brief Adresse der Hardware von CanTypeA. Diese erlaubt den Direktzugriff des Adapters auf die Hardware.
