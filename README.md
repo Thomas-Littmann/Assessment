@@ -27,7 +27,8 @@ Hier ist das UML-Klassendiagramm der implementierten Lösung:
 ## Designentscheidungen
 
 - **Adapter-Muster:**  
-  Adapter wurden gewählt, um die Unterschiede in den Hardware-APIs zu kapseln. Das erleichtert es, neue CAN-Hardware anzubinden, ohne die Applikation anzupassen.  
+  Adapter kapseln die Unterschiede der Hardware-APIs. Dies ermöglicht die Integration neuer Hardware (z. B. `CanTypeF`), indem lediglich ein neuer Adapter implementiert wird, der das `ICanInterface` bedient. Die
+  Applikationslogik bleibt davon unbetroffen, was den Wartungsaufwand minimiert und eine hohe Skalierbarkeit gewährleistet.
 
 - **Callbacks:**  
   Die einheitliche Schnittstelle unterstützt die Registrierung von Callbacks für asynchrones Empfangen von Nachrichten und Fehlern.
@@ -40,9 +41,9 @@ Hier ist das UML-Klassendiagramm der implementierten Lösung:
 - **Baudrate:**  
   Einheitliches Enum `CanBaudrate` (125k, 250k, 500k) wird in hardware-spezifische Werte übersetzt.  
 
-- **Direktzugriff auf Spezialfunktionen:**  
-  Über `getHardware()` kann die Applikation die Adresse der Hardware lesen, und dann direkt auf hardwareeigene Spezialfunktionen zugreifen (bspt. über Downcast).
-  Die Spezialfunktionen sind hier `setBaudrate(eBaudrate br)` in `CanTypeA` und `sendMessageStruct(messageStruct* message)` in `CanTypeE`.
+- **Direktzugriff auf Spezialfunktionen (Bypass):** Über die Methode `getHardware()` der Adapter kann die Applikation die Adresse des zugrunde liegenden Hardware-Objekts erhalten, um auf spezifische Funktionen zuzugreifen (z. B. `setBaudrate(eBaudrate)` in `CanTypeA` oder `sendMessageStruct()` in `CanTypeE`).
+  - **Bewusster Abstraktionsbruch:** Um diese Funktionen zu nutzen, muss die Applikation einen expliziten Downcast auf den konkreten Adapter ausführen. 
+  - **Sichtbarkeit:** Dies erfüllt die Anforderung, dass Spezialzugriffe erkennbar sein müssen. Solche Hardware-Abhängigkeiten werden dadurch im Code gut sichtbar.
 
 ---
 
